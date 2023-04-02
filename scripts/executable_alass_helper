@@ -1,0 +1,67 @@
+#!/bin/bash
+echo "alass_helper <video dir> <new subs>"
+
+ANIME_DIR=$1
+NEW_SUBS_DIR=$2
+
+echo anime: $ANIME_DIR
+echo subs: $NEW_SUBS_DIR
+
+
+show_video_files() {
+  rm /tmp/anime_files
+  touch /tmp/anime_files
+  IDX=0
+  cd "$ANIME_DIR"
+  # for dir in $NEW_SUBS_DIR/     # list directories in the form "/tmp/dirname/"
+  for dir in *mkv
+  do
+      ((IDX=IDX+1))
+      dir=${dir%*/}      # remove the trailing "/"
+      echo "$IDX) ${dir##*/}"    # print everything after the final "/"
+      echo $(pwd)/${dir##*/} >> /tmp/anime_files
+  done
+
+
+  echo $ANIME_FILE
+}
+
+show_sub_files() {
+  rm /tmp/subs_files
+  touch /tmp/subs_files
+  IDX=0
+  cd "$NEW_SUBS_DIR"
+  # for dir in $NEW_SUBS_DIR/     # list directories in the form "/tmp/dirname/"
+  for dir in *srt
+  do
+      ((IDX=IDX+1))
+      dir=${dir%*/}      # remove the trailing "/"
+      echo "$IDX) ${dir##*/}"    # print everything after the final "/"
+      echo $(pwd)/${dir##*/} >> /tmp/subs_files
+  done
+}
+
+
+show_video_files
+echo ""
+echo "Select file: "
+read ANIME_FILE
+
+# echo $ANIME_FILE
+VID=$(sed -n "$ANIME_FILE{p;q}" /tmp/anime_files)
+
+echo $VID
+
+
+show_sub_files
+echo ""
+echo "Select file: "
+read SUB_FILE
+
+SUB=$(sed -n "$SUB_FILE{p;q}" /tmp/subs_files)
+echo $SUB
+
+OUTPUT="$(echo $VID | sed "s/.mkv/.ja.srt/")"
+
+alass -n "$VID" "$SUB" "$OUTPUT"
+# show_sub_files

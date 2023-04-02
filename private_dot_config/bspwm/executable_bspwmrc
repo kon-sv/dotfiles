@@ -1,0 +1,99 @@
+#!/usr/bin/env sh
+
+
+## BSPWM config
+bspc config focus_follows_pointer true
+
+bspc config border_width          0
+bspc config window_gap            6
+bspc config top_padding           28
+bspc config left_padding          0
+bspc config right_padding         0
+bspc config bottom_padding        0
+
+bspc config split_ratio           0.52
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config pointer_modifier      mod1
+
+bspc monitor -f primary
+
+## BSPWM Rules
+bspc rule -a Wine      monitor=HDMI-1
+bspc rule -a Onboard sticky=on state=floating
+bspc rule -a Gimp desktop=^8 follow=on state=floating
+bspc rule -a Steam desktop=^8 follow=on state=floating
+bspc rule -a 'Starsector 0.9.1a-RC8' desktop=^8 follow=on state=floating
+
+bspc rule -a URxvt:urxvt_keys_help state=floating
+
+
+## Manage desktops
+btops &
+
+## Swallow
+#export PIDSWALLOW_SWALLOW_COMMAND='bspc node $pwid --flag hidden=on'
+#export PIDSWALLOW_VOMIT_COMMAND='bspc node $pwid --flag hidden=off'
+pgrep -fl 'pidswallow -gl' || pidswallow -gl
+
+
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_PLATFORM_PLUGIN="qt5ct"
+export KRITA_NO_STYLE_OVERRIDE=1
+export GTK_CSD=0
+export GTK_USE_PORTAL=1
+export LD_PRELOAD="/usr/lib/libgtk3-nocsd.so.0"
+export GO111MODULE=on
+
+## Screens
+
+## multi monitor
+# xrandr --output HDMI-A-0 --auto --primary
+# xrandr --output DisplayPort-1 --auto --right-of HDMI-A-0
+# xrandr --output DisplayPort-2 --auto --left-of HDMI-A-0
+
+# single central monitor
+xrandr --output DisplayPort-1 --off xrandr --output DisplayPort-2 --off
+
+bspc monitor -f primary
+
+## Keyboard and shortcuts
+#setxkbmap -layout "dvorak" -option "caps:backspace,lv3:ralt_switch,compose:sclk" && sxhkd &
+sxhkd &
+
+## Cursor
+xsetroot -cursor_name left_ptr &
+xbanish &
+
+## Colors / Wallpaper
+xrdb -merge -q ~/.Xresources && ~/.fehbg && wal -Rnq
+
+## Music
+start-pulseaudio-x11 &
+mpd &
+mpDris2 &
+transmission-daemon --port 9091 --allowed "127.0.0.1"
+transmission-rss
+
+## No screensaver
+xset s off &
+xset -dpms &
+
+## No time to waste
+xset r rate 300 50 &
+
+## Compositor
+picom --experimental-backends --backend glx -b &
+redshift &
+
+## Peripherals
+xsetwacom set "$(xsetwacom --list devices | awk '/Pen stylus/ { if ($7 == "id:") { print $8 } }')" MapToOutput HDMI-A-1 &
+openrgb --server &
+
+## Manage desktops
+btops &
+
+## Bar
+"${HOME}/.config/polybar/launch.sh"
+xfce4-panel -d > /dev/null 2>&1

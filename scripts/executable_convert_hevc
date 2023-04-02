@@ -1,0 +1,18 @@
+#!/bin/zsh
+MEDIA_PATH=/media/anime/omvpi/Chainsaw\ Man/Season\ 1
+OUTPUT_PATH=/media/anime/omvpi/Chainsaw\ Man/tmp
+
+cd $MEDIA_PATH
+
+# for i in *; do echo $i end
+
+
+for f in *
+do
+    echo "Processing $f" # always double quote "$f" filename
+    # touch $OUTPUT_PATH/$f
+
+    ffmpeg -i $MEDIA_PATH/$f -map 0 -c:v libx264 -crf 18 -c:a copy -c:s copy $OUTPUT_PATH/$f  # do something on $f
+done
+
+

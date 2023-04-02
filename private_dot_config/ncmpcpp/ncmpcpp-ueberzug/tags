@@ -1,0 +1,36 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/krakendress/.config/ncmpcpp/ncmpcpp-ueberzug/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
+Broken:	README.md	/^#### Broken:$/;"	t	section:ncmpcpp-ueberzug""Compatibility
+Compatibility	README.md	/^## Compatibility$/;"	s	chapter:ncmpcpp-ueberzug
+END	ncmpcpp_cover_art.sh	/^    python <<END$/;"	h
+Install	README.md	/^## Install$/;"	s	chapter:ncmpcpp-ueberzug
+Require manually setting character size in `ncmpcpp_cover_art.sh`:	README.md	/^#### Require manually setting character size in `ncmpcpp_cover_art.sh`:$/;"	t	section:ncmpcpp-ueberzug""Compatibility
+Similar scripts	README.md	/^## Similar scripts$/;"	s	chapter:ncmpcpp-ueberzug
+TODO	README.md	/^## TODO$/;"	s	chapter:ncmpcpp-ueberzug
+Working:	README.md	/^#### Working:$/;"	t	section:ncmpcpp-ueberzug""Compatibility
+apply_force_square_setting	ncmpcpp_cover_art.sh	/^apply_force_square_setting() {$/;"	f
+calc	ncmpcpp_cover_art.sh	/^calc() {$/;"	f
+cleanup	ncmpcpp-ueberzug	/^cleanup() {$/;"	f
+compute_geometry	ncmpcpp_cover_art.sh	/^compute_geometry() {$/;"	f
+compute_geometry_left_aligned	ncmpcpp_cover_art.sh	/^compute_geometry_left_aligned() {$/;"	f
+compute_geometry_right_aligned	ncmpcpp_cover_art.sh	/^compute_geometry_right_aligned() {$/;"	f
+detect_window_resizes	ncmpcpp_cover_art.sh	/^detect_window_resizes() {$/;"	f
+display_cover_image	ncmpcpp_cover_art.sh	/^display_cover_image() {$/;"	f
+find_cover_image	ncmpcpp_cover_art.sh	/^find_cover_image() {$/;"	f
+guess_font_size	ncmpcpp_cover_art.sh	/^guess_font_size() {$/;"	f
+guess_terminal_pixelsize	ncmpcpp_cover_art.sh	/^guess_terminal_pixelsize() {$/;"	f
+is_font_size_successfully_computed	ncmpcpp_cover_art.sh	/^is_font_size_successfully_computed() {$/;"	f
+kill_previous_instances	ncmpcpp_cover_art.sh	/^kill_previous_instances() {$/;"	f
+log	ncmpcpp_cover_art.sh	/^log() {$/;"	f
+main	ncmpcpp_cover_art.sh	/^main() {$/;"	f
+ncmpcpp-ueberzug	README.md	/^# ncmpcpp-ueberzug$/;"	c
+send_to_ueberzug	ncmpcpp_cover_art.sh	/^send_to_ueberzug() {$/;"	f
